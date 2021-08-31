@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "c9f32eba-cec1-47ba-9bbc-b8184501fc61",
+		"name": "Ecotierra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "example@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datos del usuario autenticado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "Bearer 2|4Mz9dPDDnCAsnCgm1WPyqqcFq1IbGYl1JFwW2esV",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/auth/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda de clientes con search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/client?search=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"client"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardado de clientes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "Andres",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Penagos",
+							"type": "text"
+						},
+						{
+							"key": "dni",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "2000-10-09",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "andrespenagos.com12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/client/store",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"client",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardado de ventas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "product_name",
+							"value": "Nombre del producto",
+							"type": "text"
+						},
+						{
+							"key": "unit_price",
+							"value": "23.90",
+							"type": "text"
+						},
+						{
+							"key": "discount_percent",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "total_price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "sdfghsdfg",
+							"value": "sdgfhghsfdgfhg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sale/store",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sale",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtro de ventas con filtro de fechs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/sale/filter/2020-01-30/2021-08-16",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sale",
+						"filter",
+						"2020-01-30",
+						"2021-08-16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ventas por ID de clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/sale/client/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sale",
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
